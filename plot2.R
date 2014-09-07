@@ -31,6 +31,6 @@ data_subset2$Date_Time <- as.POSIXct(data_subset2$Date_Time)
 plot(data_subset2$Date_Time, data_subset2$Global_active_power, type = "l", main = " ", xlab = NA,
      ylab="Global Active Power (kilowatts)")
 
-#save histogram as png file with appropriate dimensions
-png(filename = "plot2.png",
-    width = 480, height = 480, units = "px",)
+#save plot as png file with appropriate dimensions
+dev.copy(png, file = "plot2.png")
+dev.off()

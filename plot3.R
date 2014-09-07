@@ -18,8 +18,7 @@ head(data_subset)
 data_subset$Date <- as.Date(data_subset$Date, format = "%d/%m/%Y")
 head(data_subset$Date)
 
-#get the names of each date
-#datenames <- weekdays(data_subset$Date)
+
 
 #create a new column with both date and time
 data_subset2 <- within(data_subset, Date_Time <- paste(data_subset$Date, data_subset$Time, sep =' '))
@@ -39,9 +38,10 @@ lines(data_subset2$Date_Time, data_subset2$Sub_metering_3, type = "l", col = "bl
 legend(x ="topright", legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
        pch = NA, lty = 1, col = c("black", "blue", "red"))
 
-#save histogram as png file with appropriate dimensions
-png(filename = "plot3.png",
-    width = 480, height = 480, units = "px",)
+#save plot as png file with appropriate dimensions
+dev.copy(png, file = "plot3.png")
+dev.off()
+
 
 
 
